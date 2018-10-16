@@ -1,0 +1,38 @@
+{
+  "name": "self-healing",
+  "version": "1.0.0",
+  "description": "Server for the self-healing App. GraphQL, Typescript, NodeJS",
+  "main": "index.js",
+  "repository": "https://github.com/abhidhamma/self-healing-server",
+  "author": "hanji <abhidhamma91@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cors": "^2.8.4",
+    "@types/helmet": "^0.0.38",
+    "@types/morgan": "^1.7.35",
+    "@types/node": "^10.5.0",
+    "gql-merge": "^0.0.6",
+    "graphql-to-typescript": "^0.1.2",
+    "nodemon": "^1.17.5",
+    "ts-node": "^7.0.0",
+    "tslint-config-prettier": "^1.13.0",
+    "typescript": "^2.9.2"
+  },
+  "scripts": {
+    "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql",
+    "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
+    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "graphql-tools": "^3.0.4",
+    "graphql-yoga": "^1.14.10",
+    "helmet": "^3.12.1",
+    "merge-graphql-schemas": "^1.5.3",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3",
+    "typeorm": "^0.2.7"
+  }
+}
