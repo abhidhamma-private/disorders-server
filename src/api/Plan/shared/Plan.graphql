@@ -1,0 +1,13 @@
+type Plan {
+  planId: Int!
+  thumbnail: String!
+  writer: String
+  title: String
+  avatar: String
+  content: String
+  text: String
+  image: String
+  createdAt: String!
+  updatedAt: String
+  detailPlans: [DetailPlan]
+}

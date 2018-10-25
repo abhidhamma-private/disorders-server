@@ -1,0 +1,28 @@
+type AddPlanResponse {
+  ok: Boolean!
+  error: String
+}
+
+input detailPlans {
+  detailPlanId: Int!
+  planName: String!
+  startTime: String!
+  endTime: String!
+  comment: String!
+  planId: Int!
+  text: String!
+  image: String!
+}
+
+type Mutation {
+  AddPlan(
+    thumbnail: String!
+    writer: String
+    title: String
+    avatar: String
+    content: String
+    text: String
+    image: String
+    detailPlans: [detailPlans]
+  ): AddPlanResponse!
+}

@@ -1,0 +1,9 @@
+type GetPlanResponse {
+  ok: Boolean!
+  error: String
+  plan: Plan
+}
+
+type Query {
+  GetPlan(planId: Int!): GetPlanResponse!
+}

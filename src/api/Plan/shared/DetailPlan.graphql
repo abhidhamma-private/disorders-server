@@ -1,0 +1,12 @@
+type DetailPlan {
+  detailPlanId: Int!
+  planName: String!
+  successCheck: Boolean!
+  startTime: String!
+  endTime: String!
+  comment: String!
+  text: String!
+  image: String!
+  createdAt: String!
+  updatedAt: String!
+}

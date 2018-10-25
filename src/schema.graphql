@@ -1,9 +1,76 @@
+type AddDetailPlanResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  AddDetailPlan(planName: String!, startTime: String!, endTime: String!, text: String!, image: String!, planId: Int!, comment: String!): AddDetailPlanResponse!
+  AddPlan(thumbnail: String!, writer: String, title: String, avatar: String, content: String, text: String, image: String, detailPlans: [detailPlans]): AddPlanResponse!
+}
+
 type Query {
   sayBye: String!
   sayHello(name: String!): SayHelloResponse!
+  GetPlan(planId: Int!): GetPlanResponse!
+  GetPlans: GetPlansResponse!
 }
 
 type SayHelloResponse {
   text: String!
   error: Boolean!
+}
+
+type AddPlanResponse {
+  ok: Boolean!
+  error: String
+}
+
+input detailPlans {
+  detailPlanId: Int!
+  planName: String!
+  startTime: String!
+  endTime: String!
+  comment: String!
+  planId: Int!
+  text: String!
+  image: String!
+}
+
+type GetPlanResponse {
+  ok: Boolean!
+  error: String
+  plan: Plan
+}
+
+type GetPlansResponse {
+  ok: Boolean!
+  error: String
+  plan: [Plan]
+}
+
+type DetailPlan {
+  detailPlanId: Int!
+  planName: String!
+  successCheck: Boolean!
+  startTime: String!
+  endTime: String!
+  comment: String!
+  text: String!
+  image: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Plan {
+  planId: Int!
+  thumbnail: String!
+  writer: String
+  title: String
+  avatar: String
+  content: String
+  text: String
+  image: String
+  createdAt: String!
+  updatedAt: String
+  detailPlans: [DetailPlan]
 }
