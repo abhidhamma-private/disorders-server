@@ -4,13 +4,17 @@ import Plan from '../../../entities/Plan';
 
 const resolvers: Resolvers = {
   Query: {
-    GetPlans: async (_): Promise<GetPlansResponse> => {
-      const plan = await Plan.find();
+    GetPlans: async (_, __, { req }): Promise<GetPlansResponse> => {
+      console.log('#########');
+      console.log(req);
+      console.log('#########');
+
+      const plan = await Plan.find({ relations: ['user'] });
       try {
         if (!plan) {
           return {
             ok: false,
-            error: '아이디와 일치하는 Plan이 없습니다.',
+            error: 'Plan이 없습니다.',
             plan: null,
           };
         }

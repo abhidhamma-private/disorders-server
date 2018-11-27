@@ -12,7 +12,7 @@ const resolvers: Resolvers = {
       try {
         const plan = await Plan.findOne(
           { planId: args.planId },
-          { relations: ['detailPlans'] }
+          { relations: ['detailPlans', 'user'] }
         );
         if (!plan) {
           return {

@@ -17,26 +17,17 @@ class DetailPlan extends BaseEntity {
   @ManyToOne(type => Plan, plan => plan.detailPlans)
   plan: Plan;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', default: '없다' })
   planName: string;
 
   @Column({ type: 'boolean', default: false })
-  successCheck: boolean;
+  allDay: boolean;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', default: '없다' })
   startTime: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', default: '없다' })
   endTime: string;
-
-  @Column({ type: 'text', nullable: true })
-  comment: string;
-
-  @Column({ type: 'text', nullable: true })
-  text: string;
-
-  @Column({ type: 'text', nullable: true })
-  image: string;
 
   @CreateDateColumn()
   createdAt: string;

@@ -6,9 +6,10 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
   OneToMany,
+  ManyToOne,
 } from 'typeorm';
 import DetailPlan from './DetailPlan';
-
+import User from './User';
 @Entity()
 class Plan extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -19,17 +20,14 @@ class Plan extends BaseEntity {
   })
   detailPlans: DetailPlan[];
 
+  @ManyToOne(type => User, user => user.plans)
+  user: User;
+
   @Column({ type: 'text', nullable: true })
   thumbnail: string;
 
   @Column({ type: 'text', nullable: true })
-  writer: string;
-
-  @Column({ type: 'text', nullable: true })
   title: string;
-
-  @Column({ type: 'text', nullable: true })
-  avatar: string;
 
   @Column({ type: 'text', nullable: true })
   content: string;

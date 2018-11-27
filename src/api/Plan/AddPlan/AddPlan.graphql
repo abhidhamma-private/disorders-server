@@ -3,26 +3,25 @@ type AddPlanResponse {
   error: String
 }
 
-input detailPlans {
-  detailPlanId: Int!
-  planName: String!
-  startTime: String!
-  endTime: String!
-  comment: String!
-  planId: Int!
-  text: String!
-  image: String!
+input detailPlan {
+  planName: String
+  startTime: String
+  endTime: String
+  allDay: Boolean
+}
+
+input user {
+  userId: Int
 }
 
 type Mutation {
   AddPlan(
     thumbnail: String!
-    writer: String
     title: String
-    avatar: String
     content: String
     text: String
     image: String
-    detailPlans: [detailPlans]
+    detailPlans: [detailPlan]
+    user: user
   ): AddPlanResponse!
 }

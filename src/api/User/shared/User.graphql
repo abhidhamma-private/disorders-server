@@ -1,0 +1,9 @@
+type User {
+  userId: Int
+  plans: [Plan]
+  nickName: String
+  password: String
+  avatar: String
+  createdAt: String
+  updatedAt: String
+}
